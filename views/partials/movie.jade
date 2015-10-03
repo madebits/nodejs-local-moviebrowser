@@ -1,0 +1,18 @@
+h4 #{movie.title} ( #{movie.year} )
+a(class='mlink',
+href= '#',
+onclick='$.get("' + movie.url + '").fail(onNbError); return false;'
+title= 'Play')
+  img(class='img-rounded pull-left spaced', src= movie.poster)
+p #{movie.overview}
+  small
+    span.text-muted
+      span(class='glyphicon glyphicon-play')
+      | #{movie.runTime} min <span> </span>
+    span.text-info
+      span(class='glyphicon glyphicon-star-empty')
+      | #{movie.vote}
+br(clear='all')
+p: small(class='text-muted')
+  span(class='glyphicon glyphicon-film')
+  | #{movie.fileName}

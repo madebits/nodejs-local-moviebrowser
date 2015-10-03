@@ -1,0 +1,21 @@
+extends layout
+
+block headcontent
+  script(src='/angular/angular.min.js', type='text/javascript')
+  script(src='/client/app.js', type='text/javascript')
+
+block content
+  div#app(ng-app='movieApp', ng-controller='movieCtrl', ng-cloak)
+    div
+      div.pull-right
+        a#stop(href='', ng-click='stop()', ng-show='data.stopVisible')
+          span(class='glyphicon glyphicon-off')
+          | Stop Server
+      h1.text-info
+        span(class='glyphicon glyphicon-facetime-video')
+        | My Local Movies
+    div.container-fluid
+      div.row(ng-repeat='row in range(0, data.rows)')
+        div(class='col-sm-12 col-md-4', ng-repeat='col in range(0, data.cols)')
+          div(ng-if='movie(row, col)')
+            ng-include(src="resolvePartial('appmovie')")

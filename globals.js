@@ -1,0 +1,1 @@
+GLOBAL.__ = require('async');

@@ -1,0 +1,27 @@
+extends layout
+block content
+  div
+    div.pull-right
+      a#stop(href='#', onclick='$.get("/close").fail(onNbError); return false;')
+        span(class='glyphicon glyphicon-off')
+        |  Stop Server
+    h1.text-info
+      span(class='glyphicon glyphicon-facetime-video')
+      |  My Local Movies
+  div.container-fluid
+  - for(var row = 0; row < data.rows; row++) {
+    div.row
+      - for(var col = 0; col < data.cols; col++) {
+        - var movie = data.at(row, col);
+        div(class='col-sm-12 col-md-4')
+          if movie
+            include partials/movie
+      - }
+  - }
+  br
+  div(class='text-center'): strong End
+
+  script.
+    function onNbError() {
+        alert("Stopped!"); $("#stop").hide(); open(location, "_self").close();
+    }

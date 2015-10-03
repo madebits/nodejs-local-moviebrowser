@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>LocalMovie.qml</file>
+        <file>logic.js</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>play.png</file>
+    </qresource>
+</RCC>
